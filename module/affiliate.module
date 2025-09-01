@@ -1,0 +1,69 @@
+#!name=广告联盟
+#!desc=联盟广告屏蔽
+
+[Rule]
+# 腾讯
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,mdt.qq.com,REJECT
+DOMAIN-SUFFIX,mazu.m.qq.com,REJECT
+DOMAIN-SUFFIX,bugly.qq.com,REJECT
+
+# 字节
+URL-REGEX,.*pangolin-sdk-toutiao.*,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.zijieapi.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+
+# 百度
+DOMAIN-SUFFIX,cdn.bcebos.com,REJECT
+DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT
+DOMAIN-SUFFIX,bgg.baidu.com,REJECT
+
+# 快手
+DOMAIN-SUFFIX,gdfp.gifshow.com,REJECT
+
+# 美团
+DOMAIN-SUFFIX,impdsp.meituan.com,REJECT
+
+# 神马
+DOMAIN-SUFFIX,partner.sm.cn,REJECT
+
+# BeiZi SDK
+DOMAIN-SUFFIX,beizi.biz,REJECT
+
+# 个推
+DOMAIN-SUFFIX,getui.com,REJECT
+
+# 上海旺脉
+DOMAIN-SUFFIX,66mobi.com,REJECT
+DOMAIN-SUFFIX,adx.adwangmai.com,REJECT
+
+# 北京迈优互动
+DOMAIN-SUFFIX,xcultur.com,REJECT
+
+# 广州布里奇
+DOMAIN-SUFFIX,anythinktech.com,REJECT
+
+# 上海领页
+DOMAIN-SUFFIX,wxcjgg.cn,REJECT
+
+# 济南维快
+DOMAIN-SUFFIX,hubcloud.com.cn,REJECT
+
+# 其他
+DOMAIN-SUFFIX,comodoca.com,REJECT
+DOMAIN-SUFFIX,xdmssp.com,REJECT
+DOMAIN-SUFFIX,mssdk.volces.com,REJECT
+
+[Url Rewrite]
+# 百度
+^https?:\/\/mobads\.baidu\.com - reject
+# 快手
+^https?:\/\/open\.e\.kuaishou\.com - reject
+# 美团
+^https?:\/\/s3plus\.meituan\.net - reject
+# 其他
+^https?:\/\/sdk\.1rtb\.net - reject
+
+[MITM]
+hostname = %APPEND% *.mobads.baidu.com,*.e.kuaishou.com,s3plus.meituan.net,*.1rtb.net
